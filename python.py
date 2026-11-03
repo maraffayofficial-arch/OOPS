@@ -5,15 +5,15 @@ class BankSystem:
     def __init__(self,amount,employeeName):
         self.name=employeeName
         self.balance=amount
-        print(f"The current amount of {self.name} account is ${self.balance}")
+        # print(f"The current amount of {self.name} account is ${self.balance}")
     
     
     def getBalance(self):
-        return print(self.balance)
+        return print(f"Account:{self.name}\n Balance:{self.balance}")
 
     def deposit(self,amount):
         self.balance=self.balance+amount
-        return print(f"Transaction successfull!!\n Balance: ${self.balance}")
+        return print(f"Transaction successfull!!\nAccount:{self.name}\n Balance: ${self.balance}")
     
     def validTransction(self,amount):
         if self.balance>=amount:
@@ -36,8 +36,26 @@ class BankSystem:
           
 
         except BalanceException as error:
-            print(error)
-            f"Sorry account:{self.name} has only balance:{self.balance:.2f}"
+            
+           print(f"withdraw interupted{error}")
+
+    def transaction(self,amount,account):
+        try:
+            print("\n**********\n\nBegining Transfer...🚀🚀")
+            self.validTransction(amount)
+            # print("execution 1")
+            account.deposit(amount)
+            print(f"Amount transfered:{amount:.2f}")
+            self.balance=self.balance-amount
+            
+            print(f"Transfer Complete..✅\nYour Balance:{self.balance:.2f}")
+            # print("execution 2")
+        except BalanceException as error:
+            # print("execution 3")
+            print(f"Transcation interupted{error}")
+
+
+
 
             
 
