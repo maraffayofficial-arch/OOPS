@@ -74,7 +74,8 @@ class SavingsAcc(InterestRewardsAcc):
     def withdraw(self, amount):
         try:
             self.validTransction(amount)
-            self.balance=self.balance-amount
+            self.balance=self.balance-(amount+self.fee)
+            print(f"Withdraw successfull.. ✅")
             self.getBalance()
 
         except BalanceException as error:
