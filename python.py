@@ -39,7 +39,7 @@ class BankSystem:
             
            print(f"withdraw interupted{error}")
 
-    def transaction(self,amount,account):
+    def transfer(self,amount,account):
         try:
             print("\n**********\n\nBegining Transfer...🚀🚀")
             self.validTransction(amount)
@@ -54,11 +54,39 @@ class BankSystem:
             # print("execution 3")
             print(f"Transcation interupted{error}")
 
-
-
+# creating an interest account which will have all the accounts props plus it will have an altered version of deposit
+# using inheritence 
+class InterestRewardsAcc(BankSystem):
+    def deposit(self, amount):
+        self.validTransction(amount)
+        self.balance=self.balance+(amount*1.05)
+        print(f"Deposit complete new balance:{self.balance}")
 
             
+# now creating a saving account this will inherit from InterestRewardsAcc so it will get 5% everytime when a deposit is made but also will pay fee of 5 RS when ever a withdrawal is made
 
+
+class SavingsAcc(InterestRewardsAcc):
+    
+    def __init__(self, initialamount, accountname):
+        super().__init__(initialamount,accountname)
+        self.fee=5
+    def withdraw(self, amount):
+        try:
+            self.validTransction(amount)
+            self.balance=self.balance-amount
+            self.getBalance()
+
+        except BalanceException as error:
+            print(f"Saving account error!{error}")
+
+
+
+
+
+
+# 
+#  
 # acc1=BankSystem(2000,"Usama")
 # acc2=BankSystem(2000,"manan")
 # acc3=BankSystem(2000,"hamad")
