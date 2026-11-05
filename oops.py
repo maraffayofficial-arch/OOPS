@@ -8,11 +8,11 @@ acc5=BankSystem(3000,"Waleed")
 intacc=InterestRewardsAcc(2000,"Raffay")
 save_accont=SavingsAcc(3000,"manan")
 
-# acc5.getBalance()
+acc5.getBalance()
 
-# acc5.deposit(3000)
+acc5.deposit(3000)
 
-# acc5.transfer(5000,acc1)
+acc5.transfer(5000,acc1)
 
 
 
@@ -20,15 +20,11 @@ save_accont=SavingsAcc(3000,"manan")
 
 
 save_accont.deposit(1000) # the saving account will have deposit properties of interest account
+save_accont.deposit(1000) # the saving account will have deposit properties of interest account
+save_accont.deposit(1000) # the saving account will have deposit properties of interest account
+save_accont.deposit(1000) # the saving account will have deposit properties of interest account
 
 save_accont.withdraw(2000)# and the new property of fee deduction on withdrawal
-
-
-
-
-
-
-
 
 
 
